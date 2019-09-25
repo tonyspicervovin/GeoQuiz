@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         mIsCheater = data.getBooleanExtra(CheatActivity.EXTRA_ANSWER_SHOWN, false);
+        //finding if user cheated, receiving extra from cheat activity class
     }
 
     @Override
@@ -100,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 mCurrentIndex = (mCurrentIndex+1) % mQuestionBank.length;
                 mIsCheater = false;
                 updateQuestion();
+                //when next button is pressed we cycle to next question and call method to show
             }
         });
 
@@ -113,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
              i.putExtra(CheatActivity.EXTRA_ANSWER_IS_TRUE, answerIsTrue);
              startActivityForResult(i, 0);
          }
+         //creating new intent when cheat button is pressed and initiating cheat activity
      });
         updateQuestion();
     }

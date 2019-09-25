@@ -19,20 +19,19 @@ public class CheatActivity extends Activity {
         Intent data = new Intent();
         data.putExtra(EXTRA_ANSWER_SHOWN, isAnswerShown);
         setResult(RESULT_OK, data);
-
-
+        //putting extra to be passed back to main activity on whether user cheated or not
     }
 
     @Override
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cheat);
-
+        //setting view to activity cheat layout
         mAnswerIsTrue = getIntent().getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false);
-
+        //getting answer extra from main activity
         setExtraAnswerShownResult(false);
+        //passing that user did not cheat
         mAnswerTextView = (TextView)findViewById(R.id.answerTextView);
-
         mShowAnswer = (Button)findViewById(R.id.showAnswerButton);
         mShowAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +43,7 @@ public class CheatActivity extends Activity {
                 }
                 setExtraAnswerShownResult(true);
             }
+            //when user presses show answer it shows the right answer and sets if user cheated to true
         });
     }
 }
